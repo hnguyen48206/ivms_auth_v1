@@ -1,0 +1,5 @@
+{
+    "videoStoragePath" : "./videos-storage",
+    "videoTempPath" : "./videos",
+    "backupStoragePath" : "./videos-storage"
+}

@@ -1,0 +1,7 @@
+{
+    "TOKEN_ADMIN_EXPIRED": "30d",
+    "TOKEN_VIEWER_EXPIRED": "5m",
+    "ADMIN_ROLE": "admin",
+    "VIEWER_ROLE": "viewer",
+    "JWT_SECRET": "IVMS@SECRET!!!"
+}

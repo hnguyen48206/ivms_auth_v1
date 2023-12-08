@@ -1,0 +1,27 @@
+{
+    "telegram": {
+        "active": true,
+        "host": "api.telegram.org",
+        "sendText": "/sendMessage",
+        "name": "ivms_restream_bot",
+        "token": "1872476154:AAHvC0g3HKJvWd1HBvKHnsf6S_d8h5pM20s",
+        "subcribers": [
+            "-519694701"
+        ],
+        "admin": [
+            "-519694701"
+        ]
+    },
+    "sms": {
+        "active": false,
+        "host": "eoc.vnptit.vn",
+        "sendText": "/api/eoc/v1/smsIVMS",
+        "authorization": "Basic aXZtc3VzZXI6QWlWcE1zQEVvQyQk",
+        "subcribers": [
+            "0919797007"
+        ],
+        "admin": [
+            ""
+        ]
+    }
+}

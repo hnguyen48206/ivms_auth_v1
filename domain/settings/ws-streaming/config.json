@@ -1,0 +1,7 @@
+{
+  "httpHost": "localhost",
+  "httpPort": "8081",
+  "httpSecret": "supersecret",
+  "wsHost": "localhost",
+  "wsPort": "8082"
+}

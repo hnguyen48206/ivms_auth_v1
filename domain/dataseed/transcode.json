@@ -1,0 +1,82 @@
+[
+    {
+        "restream" : "NONE",
+        "status" : true,
+        "description" : "Không restream, sử dụng luồng gốc."
+    },
+    {
+        "restream" : "RTSP_COPY_ORIGINAL",
+        "status" : true,
+        "description" : "Restream, không transcode, giữ nguyên cấu hình gốc."
+    },
+    {
+        "restream" : "RTSP_H264_ORIGINAL",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H264, giữ nguyên độ phân giải gốc."
+    },
+    {
+        "restream" : "RTSP_H264_480P",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H264, output độ phân giải 480P."
+    },
+    {
+        "restream" : "RTSP_H264_720P",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H264, output độ phân giải 720P."
+    },
+    {
+        "restream" : "RTSP_H264_1080P",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H264, output độ phân giải 1080P."
+    },
+    {
+        "restream" : "RTSP_H264_2K",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H264, output độ phân giải 2K."
+    },
+    {
+        "restream" : "RTSP_H264_4K",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H264, output độ phân giải 4K."
+    },
+    {
+        "restream" : "RTSP_H265_ORIGINAL",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H265, giữ nguyên độ phân giải gốc."
+    },
+    {
+        "restream" : "RTSP_H265_480P",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H265, output độ phân giải 480P."
+    },
+    {
+        "restream" : "RTSP_H265_720P",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H265, output độ phân giải 720P."
+    },
+    {
+        "restream" : "RTSP_H265_1080P",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H265, output độ phân giải 1080P."
+    },
+    {
+        "restream" : "RTSP_H265_2K",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H265, output độ phân giải 2K."
+    },
+    {
+        "restream" : "RTSP_H265_4K",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec H265, output độ phân giải 4K."
+    },
+    {
+        "restream" : "RTSP_VP8_ORIGINAL",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec VP8, giữ nguyên độ phân giải gốc."
+    },
+    {
+        "restream" : "RTSP_VP9_ORIGINAL",
+        "status" : true,
+        "description" : "Restream, có transcode, chuyển codec VP9, giữ nguyên độ phân giải gốc."
+    }
+]

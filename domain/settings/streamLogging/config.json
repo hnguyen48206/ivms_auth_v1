@@ -1,0 +1,11 @@
+{
+    "timeToKeepStreamLog": "3d",
+    "minTimeToKeepStreamLog": "1d",
+    "streamStatus": {
+        "started": 0,
+        "restarted": 1,
+        "stopped": 2,
+        "scheduled": 3,
+        "deleted": 4
+    }
+}

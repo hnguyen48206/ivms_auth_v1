@@ -1,0 +1,11 @@
+{
+    "timeToKeepRecordLog": "3d",
+    "minTimeToKeepRecordLog": "1d",
+    "recordStatus": {
+        "started": 0,
+        "restarted": 1,
+        "stopped": 2,
+        "scheduled": 3,
+        "deleted": 4
+    }
+}
