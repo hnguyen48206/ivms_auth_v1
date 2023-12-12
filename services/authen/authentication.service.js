@@ -116,21 +116,30 @@ module.exports = {
                             try {
 
                                 if (process.env.DTP.toString() == '1') {
-                                    let token
-                                    token = await dtp_otp.getToken();
-                                    if (token) {
-                                        let sendOTPresult;
-                                        sendOTPresult = await dtp_otp.sendOTP(token, userVerificationResult[0]["PhoneNumber"]);
-                                        if (sendOTPresult)
-                                        {
-                                            cacher.set(this.adapter, this.broker, 'OTP_DTP' + userVerificationResult[0]["UserID"], { userInfo: userVerificationResult[0] });
-                                            return resultHandler(1, 'Gửi mã OTP thành công đến số điện thoại người dùng', {});
-                                        }
-                                        else
-                                            return resultHandler(0, 'Gửi mã OTP thất bại. Xin vui lòng thử lại', {});
+                                    if(process.env.SKIP_OTP.toString() == '1')
+                                    {
+                                        cacher.set(this.adapter, this.broker, 'OTP_DTP' + userVerificationResult[0]["UserID"], { userInfo: userVerificationResult[0] });
+                                        return resultHandler(1, 'Gửi mã OTP thành công đến số điện thoại người dùng', {});
                                     }
                                     else
-                                        return resultHandler(0, 'Gửi mã OTP thất bại - Không lấy được token. Xin vui lòng thử lại', {});
+                                    {
+                                        let token
+                                        token = await dtp_otp.getToken();
+                                        if (token) {
+                                            let sendOTPresult;
+                                            sendOTPresult = await dtp_otp.sendOTP(token, userVerificationResult[0]["PhoneNumber"]);
+                                            if (sendOTPresult)
+                                            {
+                                                cacher.set(this.adapter, this.broker, 'OTP_DTP' + userVerificationResult[0]["UserID"], { userInfo: userVerificationResult[0] });
+                                                return resultHandler(1, 'Gửi mã OTP thành công đến số điện thoại người dùng', {});
+                                            }
+                                            else
+                                                return resultHandler(0, 'Gửi mã OTP thất bại. Xin vui lòng thử lại', {});
+                                        }
+                                        else
+                                            return resultHandler(0, 'Gửi mã OTP thất bại - Không lấy được token. Xin vui lòng thử lại', {});
+                                    }
+                                    
                                 }
                                 else {
                                     let result
@@ -483,17 +492,20 @@ module.exports = {
                     else
                     {
                         let cacheOTP = await cacher.get(this.adapter, this.broker, 'OTP_DTP' + ctx.params.userID);
+                        
                         if (cacheOTP) {
                             let token
                             token = await dtp_otp.getToken();
                             if (token) {
-                                let verifyOTPresult;
+                                let verifyOTPresult = true;
+                                if(process.env.SKIP_OTP.toString() == '0')
                                 verifyOTPresult = await dtp_otp.verifyOTP(token, cacheOTP["PhoneNumber"], ctx.params.otp);
                                 console.log(verifyOTPresult)
                                 if (verifyOTPresult)
                                     {
                                         // Xác thực OTP thành công
                                         let getUserPermissionResult = await this.adapter.db.query(`CALL find_user_permission_and_role('${ctx.params.userID}')`)
+                                        
                                         if (getUserPermissionResult != null) {
                                             //  Create token
                                             const token = tokenManager.createToken({ userID: ctx.params.userID })
