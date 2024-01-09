@@ -54,7 +54,9 @@ module.exports = {
          logUserAction(ctx) {
             //  console.log('Params của log service')
             //  console.log(ctx.params)
-            return this.adapter.db.query(`CALL userlogs_insert_delete_select_update(0, '${ctx.params.userID}', '${ctx.params.action}', '${ctx.params.data}','${ctx.params.comment}', 'Insert')`)
+            if(process.env.USER_LOG!=null && process.env.USER_LOG==1)
+            {
+                return this.adapter.db.query(`CALL userlogs_insert_delete_select_update(0, '${ctx.params.userID}', '${ctx.params.action}', '${ctx.params.data}','${ctx.params.comment}', 'Insert')`)
                 .then((res) => {
                     return true
                 }
@@ -63,6 +65,8 @@ module.exports = {
                     console.log(err)
                     return false
                 });
+            }
+            return true;
         },
 
     },

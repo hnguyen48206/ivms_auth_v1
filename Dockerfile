@@ -11,4 +11,6 @@ RUN npm install --production
 
 COPY . .
 
+# CMD ["npm", "run", "devserver"]
+
 CMD ["npm", "start"]
